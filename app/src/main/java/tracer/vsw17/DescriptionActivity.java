@@ -2,10 +2,11 @@ package tracer.vsw17;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
@@ -43,11 +44,16 @@ public class DescriptionActivity extends BaseActivity {
         TextView titleView = findViewById(R.id.fund_raise_title);
         TextView percentageView = findViewById(R.id.fund_raise_percentage);
         TextView descriptionView = findViewById(R.id.fund_raise_description);
+        ImageView imageView = findViewById(R.id.fund_raise_image);
         HorizontalBarChart chart = findViewById(R.id.fund_raise_horizontal_bar_chart);
 
         titleView.setText(fundRaiseModel.getTitle());
         percentageView.setText(fundRaiseModel.getEthCostDescription());
         descriptionView.setText(fundRaiseModel.getDescription());
+
+        Glide.with(this)
+            .load(fundRaiseModel.getImageUrl())
+            .into(imageView);
 
         List<BarEntry> entries = new ArrayList<>();
         entries.add(new BarEntry(0f, fundRaiseModel.getPercentage()));

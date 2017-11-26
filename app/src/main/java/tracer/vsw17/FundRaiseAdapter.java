@@ -8,7 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.BlurTransformation;
+
+import static com.bumptech.glide.request.RequestOptions.bitmapTransform;
 
 public class FundRaiseAdapter extends RecyclerView.Adapter<FundRaiseAdapter.ViewHolder> {
     private List<FundRaiseModel> models;
@@ -30,7 +36,7 @@ public class FundRaiseAdapter extends RecyclerView.Adapter<FundRaiseAdapter.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         FundRaiseModel model = models.get(position);
         holder.setText(model.getTitle());
-        holder.setImage(model.getImageUrl());
+        holder.setImage(context, model.getImageUrl());
         holder.setModel(model);
         holder.setOnItemClickListener(viewHolderClickListener);
     }
@@ -61,8 +67,11 @@ public class FundRaiseAdapter extends RecyclerView.Adapter<FundRaiseAdapter.View
             title.setText(text);
         }
 
-        void setImage(String image) {
-            // TODO
+        void setImage(Context context, String imageUrl) {
+            Glide.with(context)
+                .load(imageUrl)
+                .apply(bitmapTransform(new BlurTransformation(25)))
+                .into(imageView);
         }
 
         void setOnItemClickListener(SimpleClickListener onItemClickListener) {

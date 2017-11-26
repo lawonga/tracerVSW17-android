@@ -60,6 +60,7 @@ public class MainActivity extends BaseActivity {
         List<FundRaiseModel> list = new ArrayList<>();
         String[] titles = getResources().getStringArray(R.array.titles);
         String[] descriptions = getResources().getStringArray(R.array.descriptions);
+        String[] imageUrls = getResources().getStringArray(R.array.image_urls);
 
         Random random = new Random(100);
         for (int i = 0; i < titles.length; i++) {
@@ -68,6 +69,7 @@ public class MainActivity extends BaseActivity {
             model.setDescription(descriptions[i]);
             model.setPercentage(random.nextInt(100));
             model.setEthCost((random.nextDouble() * 100) / 100);
+            model.setImageUrl(imageUrls[i]);
             list.add(model);
         }
 

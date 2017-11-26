@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/fund_raise_image"
         android:layout_width="match_parent"
-        android:layout_height="190dp"
+        android:layout_height="240dp"
         android:scaleType="centerCrop"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"

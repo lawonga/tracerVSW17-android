@@ -8,7 +8,14 @@
         <item>Feeding ourselves well</item>
         <item>Healthy human services</item>
         <item>Making ends meet and working well</item>
+    </string-array>
 
+    <string-array name="image_urls">
+        <item>http://vancouver.ca/images/cov/content/a-good-start-card.jpg</item>
+        <item>http://vancouver.ca/images/cov/content/a-home-for-everyone-square.jpg</item>
+        <item>http://vancouver.ca/images/cov/content/feeding-ourselves-wel-square.jpg</item>
+        <item>http://vancouver.ca/images/cov/content/healthy-human-services-square.jpg</item>
+        <item>http://vancouver.ca/images/cov/content/making-ends-meet-and-working-well-square.jpg</item>
     </string-array>
 
     <string-array name="descriptions">
@@ -22,7 +29,6 @@
             \n\nOur target: A family doctor for every Vancouver resident, and increase number of citizens who report having access to services when they need them by 25%</item>
         <item>Our goal: Adequate income and access to a broad range of healthy employment opportunities
             \n\nOur target: Reduce the city’s poverty rate by 75%, and an increase the median income by at least 3% every year</item>
-
     </string-array>
 
 </resources>
