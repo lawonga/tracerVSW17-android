@@ -12,7 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static tracer.vsw17.CONSTANTS.DESCRIPTION_ACTIVITY;
+import tracer.vsw17.adapter.FundRaiseAdapter;
+import tracer.vsw17.base.BaseActivity;
+import tracer.vsw17.model.FundRaiseModel;
+
+import static tracer.vsw17.constants.CONSTANTS.DESCRIPTION_ACTIVITY;
 
 
 public class MainActivity extends BaseActivity {
@@ -41,9 +45,14 @@ public class MainActivity extends BaseActivity {
                 Intent intent = new Intent(this, DescriptionActivity.class);
                 intent.putExtra(DESCRIPTION_ACTIVITY, Parcels.wrap(fundRaiseModel));
                 startActivity(intent);
-            }
-        );
+            });
+        fundRaiseAdapter.setViewHolderAltClickListener((fundRaiseModel, position) -> {
+                Intent intent = new Intent(this, FundedActivity.class);
+                intent.putExtra(DESCRIPTION_ACTIVITY, Parcels.wrap(fundRaiseModel));
+                startActivity(intent);
+        });
         recyclerView.setAdapter(fundRaiseAdapter);
+//        getSupportActionBar().
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setHomeAsUpIndicator(R.drawable.menu_icon);
 //        getSupportActionBar().setIcon(); // Todo later
@@ -59,6 +68,9 @@ public class MainActivity extends BaseActivity {
     private List<FundRaiseModel> getModelList() {
         List<FundRaiseModel> list = new ArrayList<>();
         String[] titles = getResources().getStringArray(R.array.titles);
+        String[] subTitles = getResources().getStringArray(R.array.subtitles);
+        String[] partners = getResources().getStringArray(R.array.partners);
+        String[] hosts = getResources().getStringArray(R.array.hosts);
         String[] descriptions = getResources().getStringArray(R.array.descriptions);
         String[] imageUrls = getResources().getStringArray(R.array.image_urls);
 
@@ -66,37 +78,17 @@ public class MainActivity extends BaseActivity {
         for (int i = 0; i < titles.length; i++) {
             FundRaiseModel model = new FundRaiseModel();
             model.setTitle(titles[i]);
+            model.setSubTitle(subTitles[i]);
             model.setDescription(descriptions[i]);
-            model.setPercentage(random.nextInt(100));
+            model.setPartner(partners[i]);
+            model.setHost(hosts[i]);
+            int percentage = random.nextInt(100);
+            if (percentage <= 35) percentage += 35;
+            model.setPercentage(percentage);
             model.setEthCost((random.nextDouble() * 100) / 100);
             model.setImageUrl(imageUrls[i]);
             list.add(model);
         }
-
-        FundRaiseModel modelOne = new FundRaiseModel("A good start");
-        modelOne.setDescription("Help cure cancer!");
-        modelOne.setPercentage(13);
-        modelOne.setEthCost(0.5);
-
-        FundRaiseModel modelTwo = new FundRaiseModel("Disease");
-        modelTwo.setDescription("Help cure disease");
-        modelTwo.setPercentage(98);
-        modelTwo.setEthCost(0.1);
-
-        FundRaiseModel modelThree = new FundRaiseModel("Virus");
-        modelThree.setDescription("Help cure virus");
-        modelThree.setPercentage(34);
-        modelThree.setEthCost(1);
-
-        FundRaiseModel modelFour = new FundRaiseModel("Social Issue");
-        modelFour.setDescription("Help cure social issues");
-        modelFour.setPercentage(65);
-        modelFour.setEthCost(0.8);
-
-        list.add(modelOne);
-        list.add(modelTwo);
-        list.add(modelThree);
-        list.add(modelFour);
         return list;
     }
 }

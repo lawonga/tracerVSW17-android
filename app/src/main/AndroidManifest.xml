@@ -22,6 +22,9 @@
         <activity
             android:name=".DescriptionActivity"
             android:label="@string/causes"/>
+        <activity
+            android:name=".FundedActivity"
+            android:label="@string/milestones"/>
     </application>
 
 </manifest>

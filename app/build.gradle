@@ -29,7 +29,7 @@ repositories {
     // Here is good:
     maven { url 'https://clojars.org/repo' }
     maven { url "https://jitpack.io" }
-  maven { url 'https://maven.google.com' }
+    maven { url 'https://maven.google.com' }
 }
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -57,5 +57,6 @@ dependencies {
     compile 'jp.wasabeef:glide-transformations:3.0.1'
     // If you want to use the GPU Filters
     compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
+    compile 'com.github.medyo:fancybuttons:1.8.4'
 
 }

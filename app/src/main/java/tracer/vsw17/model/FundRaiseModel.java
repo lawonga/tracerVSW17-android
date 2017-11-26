@@ -1,4 +1,4 @@
-package tracer.vsw17;
+package tracer.vsw17.model;
 
 import org.parceler.Parcel;
 
@@ -7,12 +7,9 @@ import java.text.NumberFormat;
 
 @Parcel
 public class FundRaiseModel {
-    String title;
-    String imageUrl;
-    String description;
+    String title, subTitle, imageUrl, description, host, partner;
     double ethCost;
     float percentage;
-
 
     public FundRaiseModel() {
     }
@@ -50,15 +47,43 @@ public class FundRaiseModel {
         return "Eth to donate: " + formatter.format(ethCost);
     }
 
-    public void setEthCost(double ethCost) {
-        this.ethCost = ethCost;
-    }
-
     public float getPercentage() {
         return percentage;
     }
 
     public void setPercentage(float percentage) {
         this.percentage = percentage;
+    }
+
+    public String getSubTitle() {
+        return subTitle;
+    }
+
+    public void setSubTitle(String subTitle) {
+        this.subTitle = subTitle;
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public String getPartner() {
+        return partner;
+    }
+
+    public void setPartner(String partner) {
+        this.partner = partner;
+    }
+
+    public double getEthCost() {
+        return ethCost;
+    }
+
+    public void setEthCost(double ethCost) {
+        this.ethCost = ethCost;
     }
 }

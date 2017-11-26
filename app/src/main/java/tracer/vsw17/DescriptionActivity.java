@@ -12,28 +12,19 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 
-import org.parceler.Parcels;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import static tracer.vsw17.CONSTANTS.BAR_CHART;
-import static tracer.vsw17.CONSTANTS.DESCRIPTION_ACTIVITY;
+import tracer.vsw17.base.BaseModelActivity;
+
+import static tracer.vsw17.constants.CONSTANTS.BAR_CHART;
 
 
-public class DescriptionActivity extends BaseActivity {
-
-    private FundRaiseModel fundRaiseModel;
+public class DescriptionActivity extends BaseModelActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (getIntent() != null && getIntent().getExtras() != null && getIntent().getExtras().containsKey(DESCRIPTION_ACTIVITY)) {
-            fundRaiseModel = Parcels.unwrap(getIntent().getParcelableExtra(DESCRIPTION_ACTIVITY));
-        } else if (savedInstanceState != null && savedInstanceState.containsKey(DESCRIPTION_ACTIVITY)) {
-            fundRaiseModel = Parcels.unwrap(savedInstanceState.getParcelable(DESCRIPTION_ACTIVITY));
-        }
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -42,30 +33,37 @@ public class DescriptionActivity extends BaseActivity {
 
         setContentView(R.layout.description_activity);
         TextView titleView = findViewById(R.id.fund_raise_title);
-        TextView percentageView = findViewById(R.id.fund_raise_percentage);
+        TextView percentageView = findViewById(R.id.fund_raise_cost);
         TextView descriptionView = findViewById(R.id.fund_raise_description);
+        TextView host = findViewById(R.id.fund_raise_host_name);
+        TextView partner = findViewById(R.id.fund_raise_partner_name);
         ImageView imageView = findViewById(R.id.fund_raise_image);
         HorizontalBarChart chart = findViewById(R.id.fund_raise_horizontal_bar_chart);
+        setupBarData(chart);
 
-        titleView.setText(fundRaiseModel.getTitle());
-        percentageView.setText(fundRaiseModel.getEthCostDescription());
-        descriptionView.setText(fundRaiseModel.getDescription());
+        titleView.setText(super.getFundRaiseModel().getTitle());
+        percentageView.setText(super.getFundRaiseModel().getEthCostDescription());
+        descriptionView.setText(super.getFundRaiseModel().getDescription());
+        host.setText(super.getFundRaiseModel().getHost());
+        partner.setText(super.getFundRaiseModel().getPartner());
 
         Glide.with(this)
-            .load(fundRaiseModel.getImageUrl())
+            .load(super.getFundRaiseModel().getImageUrl())
             .into(imageView);
+    }
 
+    void setupBarData(HorizontalBarChart chart) {
         List<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(0f, fundRaiseModel.getPercentage()));
+        entries.add(new BarEntry(0f, super.getFundRaiseModel().getPercentage()));
         BarDataSet barDataSet = new BarDataSet(entries, BAR_CHART);
         barDataSet.setColor(R.color.green);
         BarData barData = new BarData(barDataSet);
         barData.setBarWidth(20);
-        barData.setValueTextSize(32f);
+        barData.setValueTextSize(20f);
         barData.setValueTextColor(R.color.white);
         barData.setValueFormatter((value, entry, dataSetIndex, viewPortHandler) -> {
             String toReturn = "";
-            if (value > 0) toReturn = String.valueOf((int) value) + "%";
+            if (value > 35) toReturn = String.valueOf((int) value) + "% of goal";
             return toReturn;
         });
         chart.setData(barData);

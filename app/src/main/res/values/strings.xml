@@ -1,8 +1,17 @@
 <resources>
     <string name="causes">Causes</string>
-    <string name="app_title">Trace</string>
+    <string name="app_title">Trace Change</string>
+    <string name="donate">Donate Now</string>
+    <string name="give">Give</string>
+    <string name="learn_more">Learn More</string>
+    <string name="host">Host</string>
+    <string name="partner">Partner</string>
+    <string name="goal">Goal</string>
+    <string name="milestones">Milestones</string>
+    <string name="funded">FUNDED CAMPAIGN</string>
 
     <string-array name="titles">
+        <item>Clean Drinking Water In Manitoba</item>
         <item>A good start</item>
         <item>A home for everyone</item>
         <item>Feeding ourselves well</item>
@@ -10,7 +19,44 @@
         <item>Making ends meet and working well</item>
     </string-array>
 
+    <string-array name="hosts">
+        <item>Marie</item>
+        <item>John</item>
+        <item>Bob</item>
+        <item>Alice</item>
+        <item>Peter</item>
+        <item>Mary</item>
+    </string-array>
+
+    <string-array name="partners">
+        <item>UNICEF</item>
+        <item>Red Cross</item>
+        <item>Boys and Girls Club</item>
+        <item>YMCA</item>
+        <item>YWCA</item>
+        <item>Tracer</item>
+    </string-array>
+
+    <string-array name="subtitles">
+        <item>Clean drinking water for the community</item>
+        <item>Bullying prevention program</item>
+        <item>Affordable housing</item>
+        <item>Healthy youth</item>
+        <item>Hockey every day</item>
+        <item>Tech salaries for everyone</item>
+    </string-array>
+
+    <string-array name="milestones">
+        <item>11/26/17 - Water is declared clean for drinking</item>
+        <item>11/16/16 - Water treatment facility begins construction</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+
     <string-array name="image_urls">
+        <item>http://www.flare.com/wp-content/uploads/2016/06/sarain_cutoff-600x400.jpg</item>
         <item>http://vancouver.ca/images/cov/content/a-good-start-card.jpg</item>
         <item>http://vancouver.ca/images/cov/content/a-home-for-everyone-square.jpg</item>
         <item>http://vancouver.ca/images/cov/content/feeding-ourselves-wel-square.jpg</item>
@@ -19,7 +65,8 @@
     </string-array>
 
     <string-array name="descriptions">
-        <item>Our goal: Vancouver's children have the best chance of enjoying a healthy childhood.
+        <item>Shoal lake First Nations community deserves clean drinking water after 18 year boil advisory.</item>
+        <item>Our goal: Vancouver\'s children have the best chance of enjoying a healthy childhood.
             \n\nOur target: 85% of Vancouver’s children are developmentally ready for school when they enter kindergarten</item>
         <item>Our goal: A range of affordable housing choices is available for all Vancouverites
             \n\nOur targets: End street homelessness, enable 2,900 new supportive housing units, and add 5,000 new social housing units</item>

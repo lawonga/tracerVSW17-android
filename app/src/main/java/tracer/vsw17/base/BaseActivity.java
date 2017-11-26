@@ -1,4 +1,4 @@
-package tracer.vsw17;
+package tracer.vsw17.base;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;

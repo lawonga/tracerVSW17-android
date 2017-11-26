@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
 
         <ImageView
             android:id="@+id/fund_raise_image"
             android:layout_width="match_parent"
             android:layout_height="240dp"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:scaleType="centerCrop"
             android:src="@drawable/charity"/>
-
-        <TextView
-            android:id="@+id/fund_raise_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:textColor="@color/white"
-            android:textSize="@dimen/title"/>
 
         <RelativeLayout
             android:id="@+id/relative_layout"
@@ -31,27 +27,113 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_below="@+id/fund_raise_image"
-            android:layout_margin="20dp">
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp">
 
             <TextView
-                android:id="@+id/fund_raise_percentage"
+                android:id="@+id/fund_raise_title"
+                fontPath="fonts/lato.ttf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="@dimen/description"/>
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/title"/>
+
+            <RelativeLayout
+                android:id="@+id/fund_raise_host_partner_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fund_raise_title"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp">
+
+                <TextView
+                    android:id="@+id/fund_raise_host"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/host"/>
+
+                <TextView
+                    android:id="@+id/fund_raise_host_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@id/fund_raise_host"
+                    android:text="@string/host"
+                    android:textSize="@dimen/subtitle"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/fund_raise_partner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/partner"/>
+
+                <TextView
+                    android:id="@+id/fund_raise_partner_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/fund_raise_partner"
+                    android:text="@string/partner"
+                    android:textSize="@dimen/subtitle"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
 
             <com.github.mikephil.charting.charts.HorizontalBarChart
                 android:id="@+id/fund_raise_horizontal_bar_chart"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
-                android:layout_below="@id/fund_raise_percentage"/>
+                android:layout_below="@id/fund_raise_host_partner_layout"/>
 
             <TextView
                 android:id="@+id/fund_raise_description"
+                fontPath="fonts/lato.ttf"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/fund_raise_horizontal_bar_chart"
                 android:textSize="@dimen/description"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/fund_raise_cost"
+                fontPath="fonts/lato.ttf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fund_raise_description"
+                android:gravity="center"
+                android:textSize="@dimen/description"/>
+
+            <mehdi.sakout.fancybuttons.FancyButton
+                android:id="@+id/button_donate"
+                fontPath="fonts/lato.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fund_raise_cost"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:paddingTop="10dp"
+                fancy:fb_borderColor="#FFFFFF"
+                fancy:fb_borderWidth="1dp"
+                fancy:fb_defaultColor="@color/colorAccent"
+                fancy:fb_focusColor="@color/colorAccent"
+                fancy:fb_iconPosition="left"
+                fancy:fb_radius="30dp"
+                fancy:fb_text="@string/donate"
+                fancy:fb_textColor="#FFFFFF"/>
         </RelativeLayout>
     </RelativeLayout>
 </ScrollView>

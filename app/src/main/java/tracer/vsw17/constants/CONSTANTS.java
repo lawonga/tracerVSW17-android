@@ -1,4 +1,4 @@
-package tracer.vsw17;
+package tracer.vsw17.constants;
 
 /**
  * Created by andy on 2017-11-25.

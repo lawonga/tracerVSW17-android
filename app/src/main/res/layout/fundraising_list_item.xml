@@ -1,27 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:padding="10dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:background="@color/colorPrimaryLessLight">
 
     <ImageView
         android:id="@+id/fund_raise_image"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:scaleType="centerCrop"
+        android:layout_height="180dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:background="?selectableItemBackground"
+        android:scaleType="centerCrop"
         android:src="@drawable/charity"/>
 
     <TextView
-        android:padding="5dp"
-        android:id="@+id/fund_raise_text"
+        android:id="@+id/fund_raise_title"
+        fontPath="fonts/lato.ttf"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fund_raise_subtitle"
+        android:layout_alignEnd="@+id/fund_raise_image"
+        android:layout_alignStart="@+id/fund_raise_subtitle"
+        android:text="@string/app_title"
         android:textColor="@color/white"
+        android:textSize="@dimen/title"/>
+
+    <TextView
+        android:id="@+id/fund_raise_subtitle"
+        fontPath="fonts/lato.ttf"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/fund_raise_image"
-        android:layout_alignParentStart="true"
-        android:textSize="@dimen/title"/>
+        android:layout_alignStart="@+id/fund_raise_image"
+        android:layout_margin="10dp"
+        android:text="@string/app_title"
+        android:textColor="@color/white"
+        android:textSize="@dimen/description"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fund_raise_subtitle"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/button_give"
+            fontPath="fonts/lato.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:background="?selectableItemBackground"
+            android:paddingBottom="10dp"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:paddingTop="10dp"
+            fancy:fb_borderColor="#FFFFFF"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@color/colorAccent"
+            fancy:fb_focusColor="@color/colorAccent"
+            fancy:fb_iconPosition="left"
+            fancy:fb_radius="10dp"
+            fancy:fb_text="@string/give"
+            fancy:fb_textColor="#FFFFFF"/>
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/button_learn_more"
+            fontPath="fonts/lato.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:background="?selectableItemBackground"
+            android:paddingBottom="10dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="10dp"
+            fancy:fb_borderColor="#FFFFFF"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@color/colorAccent"
+            fancy:fb_focusColor="@color/colorAccent"
+            fancy:fb_iconPosition="left"
+            fancy:fb_radius="10dp"
+            fancy:fb_text="@string/learn_more"
+            fancy:fb_textColor="#FFFFFF"/>
+    </RelativeLayout>
 
 </RelativeLayout>
